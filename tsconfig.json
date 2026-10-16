@@ -4,7 +4,8 @@
     "strict": true
   },
   "include": [
-    "App.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "index.ts"
   ]
 }

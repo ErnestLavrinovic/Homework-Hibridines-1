@@ -1,6 +1,19 @@
 # Homework
 
-Minimalus Expo SDK 58 Android projektas. Programos kodas: `App.tsx`.
+Minimalus Expo SDK 58 Android projektas. Programos kodas: `src/app/App.tsx`.
+
+## Struktūra
+
+```text
+src/
+  app/          # Programos pradžia ir ekranai
+  components/   # Bendri UI komponentai
+  hooks/        # React hook'ai
+  constants/    # Bendros konstantos
+  utils/        # Pagalbinės funkcijos
+  types/        # Bendri TypeScript tipai
+index.ts        # Expo registracija
+```
 
 ## Paleidimas
 
