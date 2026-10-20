@@ -1,12 +1,17 @@
 import { FlatList, Text, View, StyleSheet } from 'react-native';
+import { useState } from 'react';
 import { ProductCard } from '../components/ProductCard';
 import { products } from '../data/products';
+import { CartInfo } from '../components/CartInfo';
 
 export default function App() {
+  const [cartCount, setCartCount] = useState(0);
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.screenTitle}>Product List</Text>
+      <View style={styles.header}>
+        <Text style={styles.screenTitle}>Prekių sąrašas</Text>
+        <CartInfo count={cartCount}
+          onClearCount={() => setCartCount(0)} />
       </View>
       <FlatList
         data={products}
@@ -18,7 +23,7 @@ export default function App() {
             category={item.category}
             image={item.image}
             onAddToCart={() => {
-              console.log('Added to cart:', item.name);
+              setCartCount((cartCount) => cartCount + 1);
             }}
           />
         )}
@@ -32,12 +37,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    marginTop: 50,
+    marginBottom: 20,
+  },
   screenTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginTop: 50,
-    textAlign: 'left',
-    marginLeft: 20,
-    marginBottom: 20,
-  }
+  },
 });
