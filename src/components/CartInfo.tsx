@@ -11,46 +11,46 @@ export function CartInfo({ count, onClearCount }: CartInfoProps) {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-        <Pressable
-            style={styles.container}
-            onPress={() => setIsOpen(true)              
-            }
-        >
-        <View style={styles.container}>
-            <Text style={[styles.icon, { opacity: count > 0 ? 1 : 0.4 }]}>
-                🛒
-            </Text>
+            <Pressable
+                style={styles.container}
+                onPress={() => setIsOpen(true)
+                }
+            >
+                <View style={styles.container}>
+                    <Text style={[styles.icon, { opacity: count > 0 ? 1 : 0.4 }]}>
+                        🛒
+                    </Text>
 
-            <View style={styles.badge}>
-                <Text style={styles.count}>{count}</Text>
-            </View>
-        </View>
-        </Pressable>
-
-        <Modal
-            visible={isOpen}
-            transparent
-            animationType='fade'
-            onRequestClose={() => setIsOpen(false)}
-        >
-            <View style={styles.overlay}>
-                <View style={styles.popup}>
-                    <Text>Prekiu krepselyje: {count}</Text>
-
-                    <Button 
-                        title="Uždaryti"
-                        onPress={() => setIsOpen(false)}
-                    />
-                    <Button
-                        title="Išvalyti krepšelį"
-                        onPress={() => {
-                            onClearCount();
-                            setIsOpen(false);
-                        }}
-                    />
+                    <View style={styles.badge}>
+                        <Text style={styles.count}>{count}</Text>
+                    </View>
                 </View>
-            </View>
-        </Modal>
+            </Pressable>
+
+            <Modal
+                visible={isOpen}
+                transparent
+                animationType='fade'
+                onRequestClose={() => setIsOpen(false)}
+            >
+                <View style={styles.overlay}>
+                    <View style={styles.popup}>
+                        <Text>Prekiu krepselyje: {count}</Text>
+
+                        <Button
+                            title="Uždaryti"
+                            onPress={() => setIsOpen(false)}
+                        />
+                        <Button
+                            title="Išvalyti krepšelį"
+                            onPress={() => {
+                                onClearCount();
+                                setIsOpen(false);
+                            }}
+                        />
+                    </View>
+                </View>
+            </Modal>
         </>
     );
 }

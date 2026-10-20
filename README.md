@@ -1,19 +1,8 @@
-# Homework
+# Prekių sąrašas ir krepšelis
 
-Minimalus Expo SDK 58 Android projektas. Programos kodas: `src/app/App.tsx`.
+React Native namų darbas su Expo SDK 58, skirtas Android. Pradėjau nuo išvalyto Expo šablono.
 
-## Struktūra
-
-```text
-src/
-  app/          # Programos pradžia ir ekranai
-  components/   # Bendri UI komponentai
-  hooks/        # React hook'ai
-  constants/    # Bendros konstantos
-  utils/        # Pagalbinės funkcijos
-  types/        # Bendri TypeScript tipai
-index.ts        # Expo registracija
-```
+Programėlėje rodomos trys prekės su nuotraukomis, kainomis ir kategorijomis. Paspaudus „Pridėti į krepšelį“, skaitiklis padidėja vienetu. Paspaudus krepšelio ikoną atsidaro langelis, kuriame galima išvalyti krepšelį.
 
 ## Paleidimas
 
@@ -22,7 +11,16 @@ npm install
 npm start
 ```
 
-Telefone atidaryk SDK 58 palaikant? Expo Go ir nuskenuok QR kod?.
-Telefonas ir kompiuteris turi b?ti tame pa?iame Wi-Fi tinkle.
+Telefone per Expo Go, palaikantį SDK 58, nuskenuoti QR kodą. Telefonas ir kompiuteris turi būti tame pačiame Wi-Fi tinkle.
 
 Android emuliatoriui: `npm run android`.
+
+## Failai
+
+- `src/app/App.tsx` – pagrindinis ekranas, `FlatList` ir krepšelio skaičius su `useState`.
+- `src/components/ProductCard.tsx` – prekės kortelė, duomenis ir pridėjimo funkciją gauna per props.
+- `src/components/CartInfo.tsx` – krepšelio skaitiklis ir išvalymo langelis.
+- `src/data/products.ts` – prekių masyvas.
+- `assets/images` – prekių nuotraukos.
+
+Stilius generavome su AI pagalba.
